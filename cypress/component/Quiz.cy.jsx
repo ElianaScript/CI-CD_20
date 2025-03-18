@@ -1,4 +1,6 @@
+import React from 'react';
 import Quiz from "../../client/src/components/Quiz"
+import { mount } from 'cypress-react-unit-test';
 
 describe('Quiz Component', () => {
   beforeEach(() => {
@@ -13,7 +15,7 @@ describe('Quiz Component', () => {
       ).as('getRandomQuestion')
     });
 
-  it('should start the quiz and display the first question', () => {
+    mount(<Quiz />);
     cy.mount(<Quiz />);
     cy.get('button').contains('Start Quiz').click();
     cy.get('.card').should('be.visible');
