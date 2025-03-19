@@ -1,5 +1,8 @@
-import { Schema, model } from 'mongoose';
-const QuestionSchema = new Schema({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuestionSchema = void 0;
+const mongoose_1 = require("mongoose");
+const QuestionSchema = new mongoose_1.Schema({
     question: { type: String, required: true },
     answers: [
         {
@@ -8,6 +11,6 @@ const QuestionSchema = new Schema({
         }
     ]
 });
-const Question = model('Question', QuestionSchema);
-export { QuestionSchema };
-export default Question;
+exports.QuestionSchema = QuestionSchema;
+const Question = (0, mongoose_1.model)('Question', QuestionSchema);
+exports.default = Question;
