@@ -16,4 +16,8 @@ jobs:
         run: npm install
 
       - name: Run Cypress component tests
+<<<<<<< HEAD
         run: nnpx cypress run --component
+=======
+        run: npx cypress run --component
+>>>>>>> a6e500358bce31a3ae25cf6d8941856bd5bd153e
