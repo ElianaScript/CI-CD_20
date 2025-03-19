@@ -1,0 +1,19 @@
+name: Cypress Component Tests
+
+on: 
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress component tests
+        run: npm run test-component

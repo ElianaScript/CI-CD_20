@@ -1,4 +1,7 @@
+import React from 'react';
 import Quiz from "../../client/src/components/Quiz"
+// @ts-ignore
+import { mount } from 'cypress-react-unit-test';
 
 describe('Quiz Component', () => {
   beforeEach(() => {
@@ -13,7 +16,8 @@ describe('Quiz Component', () => {
       ).as('getRandomQuestion')
     });
 
-  it('should start the quiz and display the first question', () => {
+  it('should render the quiz component', () => {
+    // @ts-ignore
     cy.mount(<Quiz />);
     cy.get('button').contains('Start Quiz').click();
     cy.get('.card').should('be.visible');
@@ -21,6 +25,7 @@ describe('Quiz Component', () => {
   });
 
   it('should answer questions and complete the quiz', () => {
+    // @ts-ignore
     cy.mount(<Quiz />);
     cy.get('button').contains('Start Quiz').click();
 
@@ -32,6 +37,7 @@ describe('Quiz Component', () => {
   });
 
   it('should restart the quiz after completion', () => {
+    // @ts-ignore
     cy.mount(<Quiz />);
     cy.get('button').contains('Start Quiz').click();
 
@@ -45,4 +51,5 @@ describe('Quiz Component', () => {
     cy.get('.card').should('be.visible');
     cy.get('h2').should('not.be.empty');
   });
+// @ts-ignore
 });
