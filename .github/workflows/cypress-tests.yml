@@ -34,10 +34,5 @@ jobs:
       - name: Verify Cypress Installation
         run: npx cypress info
 
-      - name: Reinstall Cypress to ensure it is found
-        run: |
-          rm -rf ~/.cache/Cypress
-          npx cypress install --force
-
       - name: Run Cypress component tests
         run: npx cypress run --component
