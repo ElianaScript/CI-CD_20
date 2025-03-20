@@ -12,8 +12,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: cypress-${{ runner.os }}-
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Install Cypress Binary
+        run: npx cypress install
 
       - name: Run Cypress component tests
-        run: npm run test-component
+<<<<<<< HEAD
+        run: nnpx cypress run --component
+=======
+        run: npx cypress run --component
+>>>>>>> a6e500358bce31a3ae25cf6d8941856bd5bd153e
