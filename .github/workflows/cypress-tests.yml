@@ -29,7 +29,10 @@ jobs:
         run: npm ci
 
       - name: Install Cypress Binary
-        run: npx cypress install
+        run: npx cypress install --force
+
+      - name: Verify Cypress Installation
+        run: npx cypress info
 
       - name: Run Cypress component tests
-        run: npm run test-component
+        run: npx cypress run --component 
